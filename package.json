@@ -8,13 +8,17 @@
   "devDependencies": {
     "@parcel/transformer-glsl": "^2.1.1",
     "glslify-bundle": "^5.1.1",
-    "glslify-deps": "^1.3.2"
+    "glslify-deps": "^1.3.2",
+    "parcel": "^2.2.1"
   },
   "name": "three.pixel",
   "description": "",
   "version": "1.0.0",
   "main": "index.js",
+  "source": "index.html",
   "scripts": {
+    "start": "parcel",
+    "build": "parcel build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
