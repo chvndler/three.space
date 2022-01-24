@@ -6,6 +6,11 @@
 
 :root {
   font-size: 18px;
+  --color-bg: #000;
+}
+
+html {
+  background-color: transparent;
 }
 
 body {
@@ -20,6 +25,29 @@ body {
   font-family: 'Helvetica', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+}
+
+.app__header {
+  display: flex;
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  width: 100vw;
+  height: 50px;
+  background-color: transparent;
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  margin: auto;
+}
+
+.logo__ch {
+  position: relative;
+  margin: 0;
+  width: 50px;
+  height: 30px;
 }
 
 .demo-2 {
@@ -123,7 +151,7 @@ a:focus-visible {
 }
 
 .frame {
-  padding: 3rem 5vw;
+  padding: 2rem 2vw;
   text-align: center;
   position: relative;
   z-index: 1000;
@@ -137,7 +165,12 @@ a:focus-visible {
 }
 
 .frame__tagline {
+  position: relative;
+  padding-top: 14px;
+  font-size: 14px;
   color: gray;
+  line-height: 2;
+  vertical-align: baseline;
 }
 
 .frame__links {
@@ -163,7 +196,7 @@ a:focus-visible {
   width: 100vw;
   height: calc(100vh - 13rem);
   position: relative;
-  padding: 3rem;
+  padding: 1rem;
 }
 
 .content__title {
@@ -229,6 +262,9 @@ a:focus-visible {
   .frame__title-wrap {
     grid-area: title;
     display: flex;
+    position: fixed;
+    top: 0;
+    padding-top: 20px;
   }
   .frame__title {
     margin: 0;
@@ -245,6 +281,7 @@ a:focus-visible {
     justify-self: end;
   }
   .frame__links {
+    display: none;
     grid-area: links;
     padding: 0;
     justify-self: start;
@@ -256,6 +293,75 @@ a:focus-visible {
     height: 100vh;
   }
 }
+
+@media screen and (max-width: 500px) {
+  .frame {
+    position: fixed;
+    text-align: left;
+    z-index: 100;
+    top: 0;
+    left: 0;
+    display: grid;
+    align-content: space-between;
+    width: 100%;
+    max-width: none;
+    height: 100vh;
+    padding: 1.5rem 3.35rem;
+    pointer-events: none;
+    grid-template-columns: auto 1fr;
+    grid-template-rows: auto auto auto;
+    grid-template-areas:
+      'title ...'
+      '... ...'
+      'links demos';
+  }
+  .frame__title-wrap {
+    grid-area: title;
+    display: flex;
+    position: fixed;
+    top: 0;
+    padding-top: 20px;
+  }
+  .frame__title {
+    margin: 0;
+  }
+  .frame__tagline {
+    position: relative;
+    margin: 0 0 0 0.25rem;
+    padding: 0 0 0 1rem;
+    opacity: 0.5;
+  }
+  .frame__demos {
+    display: none !important;
+    margin: 0;
+    grid-area: demos;
+    justify-self: end;
+  }
+  .frame__links {
+    display: none !important;
+    grid-area: links;
+    padding: 0;
+    justify-self: start;
+  }
+  .frame a {
+    pointer-events: auto;
+  }
+  .content {
+    height: 100vh;
+  }
+  .content__title {
+    font-size: 50px;
+  }
+  .logo__ch {
+    width: 40px;
+  }
+  .frame__tagline {
+    font-size: 12px;
+    vertical-align: baseline;
+    line-height: 2.5;
+  }
+}
+
 #canvasContainer {
   position: fixed;
   top: 0;
